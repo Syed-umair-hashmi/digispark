@@ -27,6 +27,30 @@ while ($true) {
             $output = ipconfig | Out-String
         }
 
+        "systeminfo" {
+            $output = systeminfo | Out-String
+        }
+
+        "tasklist" {
+            $output = tasklist | Out-String
+        }
+
+        "ver" {
+            $output = ver | Out-String
+        }
+
+        "date" {
+            $output = Get-Date | Out-String
+        }
+
+        "processes" {
+            $output = Get-Process | Select-Object Name, Id, CPU | Out-String
+        }
+
+        "services" {
+            $output = Get-Service | Select-Object Status, Name, DisplayName | Out-String
+        }
+
         default {
             $output = "Command not allowed."
         }
