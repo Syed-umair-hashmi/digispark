@@ -50,6 +50,17 @@ while ($true) {
         "services" {
             $output = Get-Service | Select-Object Status, Name, DisplayName | Out-String
         }
+        
+        "connections" {
+        $output = Get-NetTCPConnection | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort, State | Out-String
+        }
+        "firewall" {
+        $output = Get-NetFirewallProfile | Select-Object Name, Enabled, DefaultInboundAction, DefaultOutboundAction | Out-String
+        }
+
+        "defender" {
+        $output = Get-MpComputerStatus | Select-Object AMServiceEnabled, AntivirusEnabled, RealTimeProtectionEnabled | Out-String
+        }
 
         default {
             $output = "Command not allowed."
